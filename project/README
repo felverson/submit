@@ -1,0 +1,54 @@
+========== LJ Simulation of Argon ==========
+
+All code is in python3
+
+All values are in reduced units unless otherwise stated ---
+
+==== Inputs ====
+
+||| particle_data: .txt file, must be formatted as follows:
+
+position_x position_y position_z velocity_x velocity_y velocity_z mass particle_label
+
+The position and velocity values can be set to zero as the code will place the particles and 
+give them appropriate velocities
+
+||| parameter_data: .txt file, must be formatted as follows:
+
+no_of_particles no_of_simulation_steps timestep cutoff_radius temperature density
+
+==== Outputs ====
+
+||| traj_out: .xyz file, VMD compatible format:
+
+no_of_particles \\ point_number \\ label x_pos y_pos z_pos \\
+
+||| obsv_out: .txt file, formatted as follows:
+
+KE PE E_total \\ MSD \\ RDF \\
+
+=== Running the code ===
+
+The command in the terminal should be as follows:
+python3 particle_manybody.py particle_datafile parameter_datafile traj_out obsv_out
+
+The code will show three plots, for RDF, MSD, and energy respectively.
+
+=== Units ===
+
+The code takes values in reduced units. Included is a unit converter, called
+'unit_converter.py', which converts values from metric to reduced units.
+
+=== Example trajectories ===
+
+Included are three trajectory files, and three observable files, for solid, liquid, and gas. 
+The parameters used for each simulation are as follows:
+
+Solid: 	Density: 1.1887		(20 cm^3/mol)
+	Temperature: 0.62604 	(75 K)
+
+Liquid: Density: 0.63397	(37.5 cm^3/mol)
+	Temperature: 1.08514	(130 K)
+
+Gas:	Density: 0.0339628574	   (700 cm^3/mol)
+	Temperature: 1.585976628   (190 K)
